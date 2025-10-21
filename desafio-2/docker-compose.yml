@@ -16,7 +16,7 @@ services:
     build:
       context: ./node
       dockerfile: Dockerfile.dev
-    entrypoint: ["dockerize", "-wait", "tcp://db:3306", "-timeout", "20s", "docker-entrypoint.sh"]
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
     command: ["npm", "start"]
     volumes:
       - ./node:/usr/src/app
